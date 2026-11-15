@@ -76,3 +76,166 @@ body {
 .footer .link a:hover {
   color: #0d6efd;
 }
+
+/* ===== SERVICES: Black Parallax ===== */
+.services-parallax {
+  position: relative;
+  padding: 140px 0;
+  color: #fff;
+  overflow: hidden;
+  background-color: #000;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, .85), rgba(0, 0, 0, .93)),
+    url("../img/services-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.svc-watermark {
+  position: absolute;
+  top: 6%;
+  left: -2%;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  font-size: clamp(5rem, 18vw, 16rem);
+  line-height: 1;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, .08);
+  pointer-events: none;
+  user-select: none;
+  will-change: transform;
+}
+
+.svc-eyebrow {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: .75rem;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .6);
+}
+
+.svc-heading {
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: -.02em;
+  color: #fff;
+}
+
+.svc-heading em {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.svc-intro {
+  margin: 0;
+  max-width: 420px;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, .65);
+}
+
+.svc-item {
+  position: relative;
+  height: 100%;
+  padding: 2.5rem 0 0;
+  border-top: 1px solid rgba(255, 255, 255, .2);
+  display: flex;
+  flex-direction: column;
+}
+.svc-item::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #fff;
+  transition: width .6s cubic-bezier(.2, .7, .2, 1);
+}
+
+.svc-item:hover::before {
+  width: 100%;
+}
+
+.svc-num {
+  display: block;
+  margin-bottom: 2rem;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, .5);
+}
+
+.svc-title {
+  margin-bottom: 1rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: clamp(1.6rem, 2.4vw, 2rem);
+  line-height: 1.2;
+  color: #fff;
+}
+
+.svc-text {
+  margin-bottom: 2rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, .65);
+  flex-grow: 1;
+}
+
+.svc-link {
+  align-self: flex-start;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: .75rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 4px;
+  transition: border-color .3s, letter-spacing .3s;
+}
+
+.svc-link i {
+  margin-left: .4rem;
+  transition: margin-left .3s;
+}
+
+.svc-link:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+.svc-link:hover i {
+  margin-left: .8rem;
+}
+
+@media (max-width: 991.98px) {
+  .services-parallax {
+    padding: 90px 0;
+    background-attachment: scroll;
+  }
+
+  .svc-item {
+    padding-top: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-parallax {
+    background-attachment: scroll;
+  }
+}
