@@ -451,49 +451,6 @@ body {
   }
 }
 
-/* Ticker */
-.sp-ticker {
-  background: var(--sp-black);
-  border-top: 1px solid var(--sp-line);
-  border-bottom: 1px solid var(--sp-line);
-  overflow: hidden;
-  padding: 1.15rem 0;
-}
-
-.sp-ticker-track {
-  display: flex;
-  width: max-content;
-  white-space: nowrap;
-  animation: spTicker 36s linear infinite;
-}
-
-.sp-ticker-group {
-  display: flex;
-  align-items: center;
-  gap: 2.75rem;
-  padding-right: 2.75rem;
-}
-
-.sp-ticker-item {
-  font-family: var(--sp-sans);
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.sp-ticker-sep {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 0.6rem;
-}
-
-@keyframes spTicker {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
 /* Featured Collection */
 .sp-featured {
   position: relative;
