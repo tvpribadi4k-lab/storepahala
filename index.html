@@ -170,15 +170,21 @@
         <!-- Portfolio -->
         <section id="portfolio" class="pf">
             <style>
-                /* ===== Portofolio (bagian: halaman porto, galeri, deskripsi proyek) ===== */
+                @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+                /* ===== Portofolio (tema hitam): halaman porto, galeri, deskripsi proyek ===== */
                 .pf {
+                    --pf-bg: #0b0b0c;
+                    --pf-text: #f4f0e8;
+                    --pf-muted: #a39d92;
+                    --pf-line: rgba(244, 240, 232, .16);
+                    --pf-accent: #d9c7a3;
                     position: relative;
                     overflow: hidden;
                     padding: 6rem 0;
-                    background: #faf7f2;
-                    color: #1c1a17;
+                    background: var(--pf-bg);
+                    color: var(--pf-text);
                 }
-                .pf-serif { font-family: 'Playfair Display', Georgia, 'Times New Roman', serif; }
                 .pf-watermark {
                     position: absolute;
                     top: 1rem;
@@ -187,7 +193,7 @@
                     font-style: italic;
                     font-size: clamp(6rem, 18vw, 16rem);
                     line-height: 1;
-                    color: rgba(28, 26, 23, .05);
+                    color: rgba(255, 255, 255, .04);
                     pointer-events: none;
                     user-select: none;
                     white-space: nowrap;
@@ -198,7 +204,7 @@
                     font-size: .75rem;
                     letter-spacing: .28em;
                     text-transform: uppercase;
-                    color: #8a7f70;
+                    color: var(--pf-accent);
                 }
                 .pf-heading {
                     font-family: 'Playfair Display', Georgia, serif;
@@ -206,9 +212,10 @@
                     font-size: clamp(2.4rem, 5vw, 4rem);
                     line-height: 1.1;
                     margin: 0;
+                    color: var(--pf-text);
                 }
-                .pf-heading em { font-style: italic; }
-                .pf-intro { color: #6b655c; line-height: 1.8; margin: 0; }
+                .pf-heading em { font-style: italic; color: var(--pf-accent); }
+                .pf-intro { color: var(--pf-muted); line-height: 1.8; margin: 0; }
 
                 /* label sub-bagian */
                 .pf-label {
@@ -219,26 +226,29 @@
                     font-size: .75rem;
                     letter-spacing: .28em;
                     text-transform: uppercase;
-                    color: #8a7f70;
+                    color: var(--pf-muted);
                 }
-                .pf-label::after { content: ""; flex: 1; height: 1px; background: rgba(28, 26, 23, .15); }
-                .pf-label b { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 400; font-size: 1.1rem; letter-spacing: 0; color: #1c1a17; }
+                .pf-label::after { content: ""; flex: 1; height: 1px; background: var(--pf-line); }
+                .pf-label b { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 400; font-size: 1.1rem; letter-spacing: 0; color: var(--pf-accent); }
 
                 /* statistik singkat */
                 .pf-stats { display: flex; flex-wrap: wrap; gap: 2.5rem; margin-top: 3rem; }
-                .pf-stat strong { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 2.4rem; line-height: 1; }
-                .pf-stat span { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: #8a7f70; }
+                .pf-stat strong { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 2.4rem; line-height: 1; color: var(--pf-text); }
+                .pf-stat span { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--pf-muted); }
 
-                /* galeri */
+                /* galeri: 12 sel = 4 / 3 / 2 kolom tanpa sel kosong */
                 .pf-grid {
                     display: grid;
-                    grid-template-columns: repeat(3, 1fr);
-                    grid-auto-rows: 260px;
-                    gap: 1.5rem;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 1.25rem;
                 }
-                .pf-item { position: relative; margin: 0; overflow: hidden; background: #d9d1c4; }
-                .pf-item.tall { grid-row: span 2; }
-                .pf-item.wide { grid-column: span 3; }
+                .pf-item {
+                    position: relative;
+                    margin: 0;
+                    overflow: hidden;
+                    aspect-ratio: 3 / 4;
+                    background: linear-gradient(160deg, #26231f, #121110);
+                }
                 .pf-item img {
                     position: absolute; inset: 0;
                     width: 100%; height: 100%;
@@ -251,61 +261,70 @@
                     display: flex; align-items: center; justify-content: center;
                     font-family: 'Playfair Display', Georgia, serif;
                     font-style: italic;
-                    font-size: 5rem;
-                    color: rgba(255, 255, 255, .45);
+                    font-size: 4rem;
+                    color: rgba(255, 255, 255, .12);
                 }
-                .pf-c1 { background: linear-gradient(160deg, #cbbfa9, #8c7b62); }
-                .pf-c2 { background: linear-gradient(160deg, #b4727a, #6b2f3a); }
-                .pf-c3 { background: linear-gradient(160deg, #e6cfc4, #b98f82); }
-                .pf-c4 { background: linear-gradient(160deg, #6f7f6a, #34423a); }
-                .pf-c5 { background: linear-gradient(160deg, #8e97a8, #3b4558); }
-                .pf-c6 { background: linear-gradient(110deg, #d8c3a0, #7a5c3a); }
                 .pf-item figcaption {
                     position: absolute; left: 0; right: 0; bottom: 0;
-                    padding: 2.5rem 1.4rem 1.2rem;
+                    padding: 3rem 1.2rem 1.1rem;
                     color: #fff;
-                    background: linear-gradient(to top, rgba(20, 18, 15, .78), rgba(20, 18, 15, 0));
-                    transform: translateY(.6rem);
-                    opacity: .92;
-                    transition: transform .5s ease, opacity .5s ease;
+                    background: linear-gradient(to top, rgba(0, 0, 0, .88), rgba(0, 0, 0, 0));
+                    transform: translateY(.5rem);
+                    transition: transform .5s ease;
                 }
-                .pf-item:hover figcaption { transform: none; opacity: 1; }
-                .pf-item .pf-no { font-size: .72rem; letter-spacing: .24em; opacity: .75; }
-                .pf-item h4 { margin: .2rem 0 .1rem; font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 1.35rem; }
-                .pf-item .pf-cat { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; opacity: .8; }
+                .pf-item:hover figcaption { transform: none; }
+                .pf-no { font-size: .7rem; letter-spacing: .24em; color: var(--pf-accent); }
+                .pf-item h4 { margin: .2rem 0 .1rem; font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 1.2rem; line-height: 1.25; color: #fff; }
+                .pf-cat { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255, 255, 255, .7); }
+
+                /* kotak ajakan di akhir galeri */
+                .pf-cta {
+                    display: flex; flex-direction: column; justify-content: flex-end;
+                    padding: 1.6rem;
+                    background: transparent;
+                    border: 1px solid var(--pf-line);
+                    color: var(--pf-text);
+                    text-decoration: none;
+                    transition: border-color .4s ease, background .4s ease;
+                }
+                .pf-cta:hover { border-color: var(--pf-accent); background: rgba(217, 199, 163, .06); color: var(--pf-text); }
+                .pf-cta h4 { font-size: 1.5rem; margin-bottom: .6rem; }
+                .pf-cta p { color: var(--pf-muted); font-size: .9rem; line-height: 1.6; margin: 0 0 1.2rem; }
+                .pf-cta .pf-arrow { font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; color: var(--pf-accent); }
 
                 /* deskripsi proyek */
                 .pf-project { display: grid; grid-template-columns: 5fr 6fr; gap: 4rem; align-items: center; }
-                .pf-project .pf-item { height: 100%; min-height: 460px; }
-                .pf-project h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; margin: 0 0 1.2rem; }
-                .pf-project h3 em { font-style: italic; }
-                .pf-project p { color: #6b655c; line-height: 1.85; }
-                .pf-details { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem 2rem; margin: 2rem 0; padding: 1.5rem 0; border-top: 1px solid rgba(28, 26, 23, .15); border-bottom: 1px solid rgba(28, 26, 23, .15); }
-                .pf-details dt { font-size: .7rem; letter-spacing: .22em; text-transform: uppercase; color: #8a7f70; font-weight: 600; }
-                .pf-details dd { margin: .2rem 0 0; font-family: 'Playfair Display', Georgia, serif; font-size: 1.1rem; }
+                .pf-project .pf-item { aspect-ratio: 4 / 5; }
+                .pf-project h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; margin: 0 0 1.2rem; color: var(--pf-text); }
+                .pf-project h3 em { font-style: italic; color: var(--pf-accent); }
+                .pf-project p { color: var(--pf-muted); line-height: 1.85; }
+                .pf-details { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem 2rem; margin: 2rem 0; padding: 1.5rem 0; border-top: 1px solid var(--pf-line); border-bottom: 1px solid var(--pf-line); }
+                .pf-details dt { font-size: .7rem; letter-spacing: .22em; text-transform: uppercase; color: var(--pf-muted); font-weight: 600; }
+                .pf-details dd { margin: .2rem 0 0; font-family: 'Playfair Display', Georgia, serif; font-size: 1.1rem; color: var(--pf-text); }
                 .pf-steps { list-style: none; padding: 0; margin: 0 0 2rem; display: grid; gap: 1rem; }
                 .pf-steps li { display: grid; grid-template-columns: 3rem 1fr; align-items: baseline; }
-                .pf-steps .n { font-family: 'Playfair Display', Georgia, serif; font-style: italic; color: #8a7f70; }
-                .pf-steps strong { font-weight: 600; }
-                .pf-steps span.d { color: #6b655c; }
-                .pf-link { display: inline-flex; align-items: center; gap: .5rem; color: #1c1a17; text-decoration: none; font-size: .8rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 600; padding-bottom: .3rem; border-bottom: 1px solid #1c1a17; }
-                .pf-link:hover { color: #1c1a17; gap: .9rem; }
-                .pf-link { transition: gap .3s ease; }
+                .pf-steps .n { font-family: 'Playfair Display', Georgia, serif; font-style: italic; color: var(--pf-accent); }
+                .pf-steps strong { font-weight: 600; color: var(--pf-text); }
+                .pf-steps span.d { color: var(--pf-muted); }
+                .pf-link { display: inline-flex; align-items: center; gap: .5rem; color: var(--pf-text); text-decoration: none; font-size: .8rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 600; padding-bottom: .3rem; border-bottom: 1px solid var(--pf-accent); transition: gap .3s ease, color .3s ease; }
+                .pf-link:hover { color: var(--pf-accent); gap: .9rem; }
 
                 @media (max-width: 991.98px) {
                     .pf { padding: 4rem 0; }
-                    .pf-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 240px; }
-                    .pf-item.wide { grid-column: span 2; }
+                    .pf-grid { grid-template-columns: repeat(3, 1fr); }
                     .pf-project { grid-template-columns: 1fr; gap: 2.5rem; }
-                    .pf-project .pf-item { min-height: 380px; }
                 }
                 @media (max-width: 575.98px) {
-                    .pf-grid { grid-template-columns: 1fr; grid-auto-rows: 320px; }
-                    .pf-item.tall, .pf-item.wide { grid-row: auto; grid-column: auto; }
+                    .pf-grid { grid-template-columns: repeat(2, 1fr); gap: .8rem; }
+                    .pf-item figcaption { padding: 2rem .8rem .8rem; }
+                    .pf-item h4 { font-size: 1rem; }
+                    .pf-cta { padding: 1rem; }
+                    .pf-cta h4 { font-size: 1.1rem; }
+                    .pf-cta p { display: none; }
                     .pf-details { grid-template-columns: 1fr; }
                 }
                 @media (prefers-reduced-motion: reduce) {
-                    .pf-item img, .pf-item figcaption, .pf-link { transition: none; }
+                    .pf-item img, .pf-item figcaption, .pf-link, .pf-cta { transition: none; }
                 }
             </style>
 
@@ -334,69 +353,75 @@
                 <div id="galeri" class="pf-label"><b>I.</b> Galeri Hasil Karya</div>
 
                 <div class="pf-grid">
-                    <figure class="pf-item tall pf-c1">
+                    <figure class="pf-item">
                         <span class="pf-ph" aria-hidden="true">01</span>
-                        <img src="assets/img/portfolio/fashion-01.jpg" alt="Linen Blazer" loading="lazy" onerror="this.remove()">
-                        <figcaption>
-                            <span class="pf-no">01</span>
-                            <h4>Linen Blazer</h4>
-                            <span class="pf-cat">Outerwear</span>
-                        </figcaption>
+                        <img src="assets/img/portfolio/linen_blazer.jpg" data-base="assets/img/portfolio/linen_blazer" alt="Linen Blazer" loading="lazy">
+                        <figcaption><span class="pf-no">01</span><h4>Linen Blazer</h4><span class="pf-cat">Outerwear</span></figcaption>
                     </figure>
-                    <figure class="pf-item pf-c2">
+                    <figure class="pf-item">
                         <span class="pf-ph" aria-hidden="true">02</span>
-                        <img src="assets/img/portfolio/fashion-02.jpg" alt="Slip Dress Satin" loading="lazy" onerror="this.remove()">
-                        <figcaption>
-                            <span class="pf-no">02</span>
-                            <h4>Slip Dress Satin</h4>
-                            <span class="pf-cat">Dress</span>
-                        </figcaption>
+                        <img src="assets/img/portfolio/slip_dress_satin.jpg" data-base="assets/img/portfolio/slip_dress_satin" alt="Slip Dress Satin" loading="lazy">
+                        <figcaption><span class="pf-no">02</span><h4>Slip Dress Satin</h4><span class="pf-cat">Dress</span></figcaption>
                     </figure>
-                    <figure class="pf-item pf-c3">
+                    <figure class="pf-item">
                         <span class="pf-ph" aria-hidden="true">03</span>
-                        <img src="assets/img/portfolio/fashion-03.jpg" alt="Kebaya Modern" loading="lazy" onerror="this.remove()">
-                        <figcaption>
-                            <span class="pf-no">03</span>
-                            <h4>Kebaya Modern</h4>
-                            <span class="pf-cat">Tradisional Kontemporer</span>
-                        </figcaption>
+                        <img src="assets/img/portfolio/kebaya_modern.jpg" data-base="assets/img/portfolio/kebaya_modern" alt="Kebaya Modern" loading="lazy">
+                        <figcaption><span class="pf-no">03</span><h4>Kebaya Modern</h4><span class="pf-cat">Tradisional Kontemporer</span></figcaption>
                     </figure>
-                    <figure class="pf-item pf-c4">
+                    <figure class="pf-item">
                         <span class="pf-ph" aria-hidden="true">04</span>
-                        <img src="assets/img/portfolio/fashion-04.jpg" alt="Kemeja Oversize Katun" loading="lazy" onerror="this.remove()">
-                        <figcaption>
-                            <span class="pf-no">04</span>
-                            <h4>Kemeja Oversize</h4>
-                            <span class="pf-cat">Atasan</span>
-                        </figcaption>
+                        <img src="assets/img/portfolio/kemeja_oversize.jpg" data-base="assets/img/portfolio/kemeja_oversize" alt="Kemeja Oversize" loading="lazy">
+                        <figcaption><span class="pf-no">04</span><h4>Kemeja Oversize</h4><span class="pf-cat">Atasan</span></figcaption>
                     </figure>
-                    <figure class="pf-item pf-c5">
+                    <figure class="pf-item">
                         <span class="pf-ph" aria-hidden="true">05</span>
-                        <img src="assets/img/portfolio/fashion-05.jpg" alt="Rok Plisket" loading="lazy" onerror="this.remove()">
-                        <figcaption>
-                            <span class="pf-no">05</span>
-                            <h4>Rok Plisket</h4>
-                            <span class="pf-cat">Bawahan</span>
-                        </figcaption>
+                        <img src="assets/img/portfolio/rok_plisket.jpg" data-base="assets/img/portfolio/rok_plisket" alt="Rok Plisket" loading="lazy">
+                        <figcaption><span class="pf-no">05</span><h4>Rok Plisket</h4><span class="pf-cat">Bawahan</span></figcaption>
                     </figure>
-                    <figure class="pf-item wide pf-c6">
+                    <figure class="pf-item">
                         <span class="pf-ph" aria-hidden="true">06</span>
-                        <img src="assets/img/portfolio/fashion-06.jpg" alt="Set Tenun Lurik" loading="lazy" onerror="this.remove()">
-                        <figcaption>
-                            <span class="pf-no">06</span>
-                            <h4>Set Tenun Lurik</h4>
-                            <span class="pf-cat">Busana Etnik</span>
-                        </figcaption>
+                        <img src="assets/img/portfolio/set_tenun_lurik.jpg" data-base="assets/img/portfolio/set_tenun_lurik" alt="Set Tenun Lurik" loading="lazy">
+                        <figcaption><span class="pf-no">06</span><h4>Set Tenun Lurik</h4><span class="pf-cat">Busana Etnik</span></figcaption>
                     </figure>
+                    <figure class="pf-item">
+                        <span class="pf-ph" aria-hidden="true">07</span>
+                        <img src="assets/img/portfolio/urban_casual_collection.jpg" data-base="assets/img/portfolio/urban_casual_collection" alt="Urban Casual Collection" loading="lazy">
+                        <figcaption><span class="pf-no">07</span><h4>Urban Casual Collection</h4><span class="pf-cat">Casual Fashion</span></figcaption>
+                    </figure>
+                    <figure class="pf-item">
+                        <span class="pf-ph" aria-hidden="true">08</span>
+                        <img src="assets/img/portfolio/elegant_wear_collection.jpg" data-base="assets/img/portfolio/elegant_wear_collection" alt="Elegant Wear Collection" loading="lazy">
+                        <figcaption><span class="pf-no">08</span><h4>Elegant Wear Collection</h4><span class="pf-cat">Formal Fashion</span></figcaption>
+                    </figure>
+                    <figure class="pf-item">
+                        <span class="pf-ph" aria-hidden="true">09</span>
+                        <img src="assets/img/portfolio/modern_streetwear.jpg" data-base="assets/img/portfolio/modern_streetwear" alt="Modern Streetwear" loading="lazy">
+                        <figcaption><span class="pf-no">09</span><h4>Modern Streetwear</h4><span class="pf-cat">Streetwear</span></figcaption>
+                    </figure>
+                    <figure class="pf-item">
+                        <span class="pf-ph" aria-hidden="true">10</span>
+                        <img src="assets/img/portfolio/modest_fashion_collection.jpg" data-base="assets/img/portfolio/modest_fashion_collection" alt="Modest Fashion Collection" loading="lazy">
+                        <figcaption><span class="pf-no">10</span><h4>Modest Fashion Collection</h4><span class="pf-cat">Modest Fashion</span></figcaption>
+                    </figure>
+                    <figure class="pf-item">
+                        <span class="pf-ph" aria-hidden="true">11</span>
+                        <img src="assets/img/portfolio/fashion_accessories.jpg" data-base="assets/img/portfolio/fashion_accessories" alt="Fashion Accessories" loading="lazy">
+                        <figcaption><span class="pf-no">11</span><h4>Fashion Accessories</h4><span class="pf-cat">Accessories</span></figcaption>
+                    </figure>
+                    <a href="#contact" class="pf-item pf-cta">
+                        <h4>Punya Desain Sendiri?</h4>
+                        <p>Konsultasikan busana pesanan khusus Anda bersama kami.</p>
+                        <span class="pf-arrow">Pesan Sekarang <i class="bi bi-arrow-right"></i></span>
+                    </a>
                 </div>
 
                 <!-- Deskripsi proyek -->
                 <div id="deskripsi-proyek" class="pf-label"><b>II.</b> Deskripsi Proyek</div>
 
                 <div class="pf-project">
-                    <figure class="pf-item pf-c1 mb-0">
+                    <figure class="pf-item mb-0">
                         <span class="pf-ph" aria-hidden="true">Senja</span>
-                        <img src="assets/img/portfolio/fashion-project.jpg" alt="Koleksi Senja Linen" loading="lazy" onerror="this.remove()">
+                        <img src="assets/img/portfolio/koleksi_senja_linen.jpg" data-base="assets/img/portfolio/koleksi_senja_linen" alt="Koleksi Senja Linen" loading="lazy">
                     </figure>
 
                     <div>
@@ -422,148 +447,28 @@
                 </div>
 
             </div>
+
+            <!-- Foto: coba .jpg dulu, lalu .jpeg/.png/.webp bila ekstensi file berbeda -->
+            <script>
+                (function () {
+                    var exts = ['jpg', 'jpeg', 'png', 'webp', 'jfif', 'avif'];
+                    document.querySelectorAll('#portfolio img[data-base]').forEach(function (img) {
+                        var i = 0;
+                        function next() {
+                            i++;
+                            if (i < exts.length) {
+                                img.src = img.getAttribute('data-base') + '.' + exts[i];
+                            } else {
+                                img.removeEventListener('error', next);
+                                img.style.display = 'none';
+                            }
+                        }
+                        img.addEventListener('error', next);
+                        if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) next();
+                    });
+                })();
+            </script>
         </section>
-
-        <!-- Fashion Gallery Cards -->
-        <section class="container py-5">
-            <div class="row text-center mb-5">
-                <div class="col-lg-8 mx-auto">
-                    <span class="text-uppercase fw-semibold text-secondary">
-                        Our Creative Works
-                    </span>
-                    <h2 class="fw-bold mt-2 mb-3">
-                        Fashion <span class="text-primary">Portfolio</span>
-                    </h2>
-                    <p class="lead text-secondary">
-                        Explore our latest fashion collections, creative designs,
-                        and unique styles that represent confidence and creativity.
-                    </p>
-                </div>
-            </div>
-
-            <div class="row g-4">
-                <!-- Project 1 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 border-0 rounded-4 shadow-sm overflow-hidden">
-                        <img src="assets/img/portfolio/urban-casual.jpg"
-                             class="card-img-top"
-                             alt="Urban Casual Collection"
-                             style="height: 280px; object-fit: cover;"
-                             loading="lazy">
-                        <div class="card-body p-4">
-                            <span class="badge bg-light text-dark mb-2">Casual Fashion</span>
-                            <h5 class="fw-bold">Urban Casual Collection</h5>
-                            <p class="text-secondary">
-                                Koleksi pakaian casual dengan desain sederhana,
-                                nyaman, dan modern untuk menunjang aktivitas
-                                sehari-hari.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 border-0 rounded-4 shadow-sm overflow-hidden">
-                        <img src="assets/img/portfolio/elegant-wear.jpg"
-                             class="card-img-top"
-                             alt="Elegant Wear Collection"
-                             style="height: 280px; object-fit: cover;"
-                             loading="lazy">
-                        <div class="card-body p-4">
-                            <span class="badge bg-light text-dark mb-2">Formal Fashion</span>
-                            <h5 class="fw-bold">Elegant Wear Collection</h5>
-                            <p class="text-secondary">
-                                Koleksi busana formal yang mengutamakan kesan
-                                elegan, rapi, dan berkelas untuk acara resmi
-                                maupun kegiatan khusus.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 border-0 rounded-4 shadow-sm overflow-hidden">
-                        <img src="assets/img/portfolio/streetwear.jpg"
-                             class="card-img-top"
-                             alt="Streetwear Collection"
-                             style="height: 280px; object-fit: cover;"
-                             loading="lazy">
-                        <div class="card-body p-4">
-                            <span class="badge bg-light text-dark mb-2">Streetwear</span>
-                            <h5 class="fw-bold">Modern Streetwear</h5>
-                            <p class="text-secondary">
-                                Koleksi fashion bergaya urban dengan sentuhan
-                                modern, perpaduan warna menarik, dan desain
-                                yang mencerminkan karakter anak muda.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 border-0 rounded-4 shadow-sm overflow-hidden">
-                        <img src="assets/img/portfolio/ethnic-fashion.jpg"
-                             class="card-img-top"
-                             alt="Ethnic Fashion Collection"
-                             style="height: 280px; object-fit: cover;"
-                             loading="lazy">
-                        <div class="card-body p-4">
-                            <span class="badge bg-light text-dark mb-2">Traditional Fashion</span>
-                            <h5 class="fw-bold">Ethnic Fashion Collection</h5>
-                            <p class="text-secondary">
-                                Perpaduan unsur budaya tradisional dengan
-                                desain modern untuk menghadirkan busana
-                                yang unik dan tetap mengikuti perkembangan zaman.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 border-0 rounded-4 shadow-sm overflow-hidden">
-                        <img src="assets/img/portfolio/modest-fashion.jpg"
-                             class="card-img-top"
-                             alt="Modest Fashion Collection"
-                             style="height: 280px; object-fit: cover;"
-                             loading="lazy">
-                        <div class="card-body p-4">
-                            <span class="badge bg-light text-dark mb-2">Modest Fashion</span>
-                            <h5 class="fw-bold">Modest Fashion Collection</h5>
-                            <p class="text-secondary">
-                                Koleksi busana modest dengan model yang
-                                stylish, nyaman, dan sopan untuk berbagai
-                                aktivitas sehari-hari.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 border-0 rounded-4 shadow-sm overflow-hidden">
-                        <img src="assets/img/portfolio/fashion-accessories.jpg"
-                             class="card-img-top"
-                             alt="Fashion Accessories Collection"
-                             style="height: 280px; object-fit: cover;"
-                             loading="lazy">
-                        <div class="card-body p-4">
-                            <span class="badge bg-light text-dark mb-2">Accessories</span>
-                            <h5 class="fw-bold">Fashion Accessories</h5>
-                            <p class="text-secondary">
-                                Koleksi aksesoris fashion seperti tas,
-                                topi, dan berbagai pelengkap outfit
-                                untuk memberikan tampilan yang lebih menarik.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Portfolio -->
 
         <!-- Contact -->
         <div id="contact" class="container text-center pt-4 pb-5">
@@ -592,3 +497,58 @@
                             </div>
                             <hr class="hr-dotted mt-0">
                             <div class="d-flex py-2">
+                                <div class="flex-shrink-0">
+                                    <i class="bi bi-whatsapp text-primary fs-4"></i>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h5 class="mb-1">WhatsApp</h5>
+                                    <p>+62 813-7778-3334</p>
+                                </div>
+                            </div>
+                            <hr class="hr-dotted mt-0">
+                            <div class="d-flex py-2">
+                                <div class="flex-shrink-0">
+                                    <i class="bi bi-envelope text-primary fs-4"></i>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h5 class="mb-1">Email</h5>
+                                    <p>pustaka.koding@gmail.com</p>
+                                </div>
+                            </div>
+                            <hr class="hr-dotted mt-0">
+                            <div class="d-flex py-2">
+                                <div class="flex-shrink-0">
+                                    <i class="bi bi-clock text-primary fs-4"></i>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h5 class="mb-1">Working Hours</h5>
+                                    <p>Monday - Saturday, 09.00 AM - 16.00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-4 bg-white">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row align-items-center align-items-md-left text-body">
+                <div class="copyright text-center mb-2 mb-md-0">
+                    &copy; 2022 - <a href="https://pustakakoding.com/" target="_blank" class="fw-bolder">Pustaka Koding</a>. All rights reserved.
+                </div>
+                <div class="link ms-md-auto">
+                    <a href="https://pustakakoding.com/" target="_blank">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Popper and Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+</body>
+
+</html>
