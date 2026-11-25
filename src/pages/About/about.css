@@ -1,0 +1,251 @@
+/* =========================================
+   RESET & GRID MANDIRI
+   ========================================= */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    color: #ffffff;
+    background-color: #050505 !important;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+}
+
+.col-12 {
+    width: 100%;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+.col-md-6, .col-lg-6 {
+    width: 50%;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+/* =========================================
+   NAVBAR DARK THEME
+   ========================================= */
+.navbar {
+    background-color: #050505 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1.25rem 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #ffffff !important;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2.25rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #a3a3a3 !important;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    transition: color 0.25s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+/* =========================================
+   ABOUT SECTION (Background Gelap)
+   ========================================= */
+.about-section {
+    padding: 6rem 0;
+    background-color: #050505 !important;
+}
+
+.abt-eyebrow {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #c5a880;
+    margin-bottom: 0.75rem;
+}
+
+.abt-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 1.15;
+    color: #ffffff !important;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.abt-heading em {
+    font-style: italic;
+    display: block;
+}
+
+.abt-heading strong {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    display: block;
+}
+
+.abt-intro {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #a3a3a3 !important;
+    margin: 0;
+}
+
+.header-row {
+    align-items: flex-end;
+    margin-bottom: 4rem;
+}
+
+/* =========================================
+   KARTU VISI & NILAI WEBSITE
+   ========================================= */
+.values-row {
+    margin-bottom: 4.5rem;
+}
+
+.abt-value-box {
+    background-color: #0d0d0d !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    padding: 2rem;
+    height: 100%;
+    transition: border-color 0.3s ease;
+}
+
+.abt-value-box:hover {
+    border-color: rgba(197, 168, 128, 0.5) !important;
+}
+
+.abt-value-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: #ffffff !important;
+}
+
+.abt-value-title i {
+    color: #c5a880;
+}
+
+/* =========================================
+   PROFIL TIM (Grid 2x2)
+   ========================================= */
+.team-header-row {
+    margin-bottom: 2.5rem;
+}
+
+.abt-item {
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    background-color: #050505 !important;
+    padding: 1.75rem 1rem 0.5rem 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.abt-item:hover {
+    transform: translateY(-4px);
+    border-top-color: #c5a880;
+}
+
+.abt-num {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #c5a880;
+    margin-bottom: 0.85rem;
+}
+
+.abt-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.55rem;
+    font-weight: 400;
+    color: #ffffff !important;
+    margin-top: 0;
+    margin-bottom: 0.35rem;
+}
+
+.abt-role {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: #c5a880;
+    margin-bottom: 1rem;
+}
+
+.abt-text {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: #a3a3a3 !important;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* =========================================
+   RESPONSIF LAYAR HP
+   ========================================= */
+@media (max-width: 768px) {
+    .col-md-6, .col-lg-6 {
+        width: 100%;
+    }
+    .navbar .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .navbar-nav {
+        gap: 1.25rem;
+    }
+    .abt-heading {
+        font-size: 2.35rem;
+    }
+}
